@@ -1,0 +1,19 @@
+{
+  "name": "civpro.io",
+  "version": "0.0.0",
+  "description": "A calculator for FRCP6",
+  "main": "rule6.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "moment": "*"
+  },
+  "keywords": [
+    "frcp",
+    "law",
+    "time"
+  ],
+  "author": "V. David Zvenyach",
+  "license": "CC0"
+}
