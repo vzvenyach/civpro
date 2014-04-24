@@ -3,8 +3,20 @@
 var moment = require('moment');
 require('./moment-holidays');
 
-function hours () {
- 	return false;
+function skip_days (m) {
+	while (m.weekday() == 0 || m.weekday() == 6|| m.holiday() != undefined) {
+		m.add('days',1);
+	}
+	return m;
+}
+
+function hours (start_hour, period) {
+	//(A) begin counting immediately on the occurrence of the event that triggers the period;
+	//(B) count every hour, including hours during intermediate Saturdays, Sundays, and legal holidays; and
+	//(C) if the period would end on a Saturday, Sunday, or legal holiday, the period continues to run until the same time on the next day that is not a Saturday, Sunday, or legal holiday.
+	hour = start_hour;
+	hour = start_hour.add('hours', period);
+	return skip_days(hour)
 }
 
 function days (start_day, period) {
@@ -14,11 +26,8 @@ function days (start_day, period) {
 		//(C) include the last day of the period, but if the last day is a Saturday, Sunday, or legal holiday, the period continues to run until the end of the next day that is not a Saturday, Sunday, or legal holiday.
 	day = start_day.add('days',1);
 	day = start_day.add('days', period);
-	while (day.weekday() == 0 || day.weekday() == 6|| day.holiday() != undefined) {
-		day.add('days',1);
-	}	
-	return day;
+	return skip_days(day);
 }
 
 // test
-// console.log(days(moment("2014-04-24"), 7))
+console.log(days(moment("2014-04-25"), 7).toString())

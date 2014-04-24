@@ -2,7 +2,7 @@
 
 Automate Rule 6 computations
 
-'''
+```
 RULE 6. COMPUTING AND EXTENDING TIME; TIME FOR MOTION PAPERS
 
 (a) Computing Time. The following rules apply in computing any time period specified in these rules, in any local rule or court order, or in any statute that does not specify a method of computing time.
@@ -68,4 +68,4 @@ RULE 6. COMPUTING AND EXTENDING TIME; TIME FOR MOTION PAPERS
 (2) Supporting Affidavit. Any affidavit supporting a motion must be served with the motion. Except as Rule 59(c) provides otherwise, any opposing affidavit must be served at least 7 days before the hearing, unless the court permits service at another time.
 
 (d) Additional Time After Certain Kinds of Service. When a party may or must act within a specified time after service and service is made under Rule 5(b)(2)(C), (D), (E), or (F), 3 days are added after the period would otherwise expire under Rule 6(a).
-'''
+```
