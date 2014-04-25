@@ -10,24 +10,20 @@ function skip_days (m) {
 	return m;
 }
 
-function hours (start_hour, period) {
-	//(A) begin counting immediately on the occurrence of the event that triggers the period;
-	//(B) count every hour, including hours during intermediate Saturdays, Sundays, and legal holidays; and
-	//(C) if the period would end on a Saturday, Sunday, or legal holiday, the period continues to run until the same time on the next day that is not a Saturday, Sunday, or legal holiday.
+exports.hours = function (start_hour, period, served) {
 	hour = start_hour;
 	hour = start_hour.add('hours', period);
+	if (!is_served(served)) {hour.add('days',3)}
 	return skip_days(hour)
 }
 
-function days (start_day, period) {
- 	//(1) Period Stated in Days or a Longer Unit. When the period is stated in days or a longer unit of time:
-		//(A) exclude the day of the event that triggers the period;
-		//(B) count every day, including intermediate Saturdays, Sundays, and legal holidays; and
-		//(C) include the last day of the period, but if the last day is a Saturday, Sunday, or legal holiday, the period continues to run until the end of the next day that is not a Saturday, Sunday, or legal holiday.
+exports.days = function (start_day, period, served) {
 	day = start_day.add('days',1);
+	if (!is_served(served)) {day.add('days',3)}
 	day = start_day.add('days', period);
 	return skip_days(day);
 }
 
-// test
-console.log(days(moment("2014-04-25"), 7).toString())
+function is_served(type) {
+	return (type == "personal" || type == "residence") ? true : false;
+}

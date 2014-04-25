@@ -25,11 +25,7 @@
             '01/01': "New Year's Day",
             '07/04': "Independence Day",
             '11/11': "Veteran's Day",
-            '11/28': "Thanksgiving Day",
-            '11/29': "Day after Thanksgiving",
-            '12/24': "Christmas Eve",
             '12/25': "Christmas Day",
-            '12/31': "New Year's Eve"
         },
         'W': {//Month, Week of Month, Day of Week
             '1/3/1': "Martin Luther King Jr. Day",
